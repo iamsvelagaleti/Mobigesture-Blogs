@@ -1,22 +1,22 @@
 # IVR
 
-IVR (Interactive Voice Flow) is an automated voice call flow that allows system to interact with its caller and support them based on their inputs provided to the system in the form of Voice or DTMF(Dual-tone Multi-frequency) through keypad. 
+IVR (Interactive Voice Flow) is a modern sophisticated system to generate an automated voice call flow that allows system to interact with its caller and answer them based on their input selection provided to the system in the form of Voice or DTMF(Dual-tone Multi-frequency) through keypad. 
 
-To make the IVR call more interactive and personalized, it will be deigned with different menus, sub-menus and options with the help of CCXML and VXML based digital documents which are processed with the help of Voice Gateway Engine.
+To make the IVR call more interactive and personalized, it can be deigned with the helps of different menus, sub-menus and options in support from CCXML and VXML based digital documents which can be processed in Voice Gateway Engine to generate an IVR call.
 
 
 
 ## IVR System Infrastructure
 
-As soon as call received at PSTN endpoint, it will get converted to SIP call to initiate a SIP session and start the IVR call.
+When a caller called an IVR number, it hits PSTN endpoint, and will get converted to  a SIP call. This SIP call initiates a SIP session and follows the call flow as designed in CCXML.
 
 
 
-<Planning to add an image here>
 
 
 
-As shown on the picture above, SIP call initiates Voice Gateway to proceed with the call. Internally a SIP session is initiated to traverse through the CCXML using CCXML interpreter. CCXML is the core that controls the complete call flow using Voice Browser to parse through VXML documents. 
+
+In reference with above picture, SIP call generated at Voice Platform Switch and transferred to  Voice Gateway. Internally a SIP session is initiated for the SIP Call and it starts traversing through the CCXML using CCXML engine. CCXML Engine is the core that controls the complete call flow based on the instructions provided in CCXML document. In the call flow, CCXML engine initiates Voice Browser to parses through VXML documents and communicate with the caller. When the caller interested to connect with the Agent then CCXML engine connects to an Agent from Agent Pool
 
 To understand more in detail, it is important to go through the below terminology and their functionality. So, let start with each components in the above diagram:
 

@@ -10,7 +10,7 @@ To evaluate and test the any IVR application, there is a simple base flow to be 
 
 
 
-In order to manually test the application, the tester need to be place a call the the test servers and respond to the same repeated prompts and respond with all options to follow a test case scenario which is a tedious task. Thus, testing the IVR application is not only boring and stressful but also time taking.
+In order to manually test the application, the tester need to be place a call to the test servers and respond to the same repeated prompts and respond with all options to follow a test case scenario which is a tedious task. Thus, testing the IVR application is not only boring and stressful but also time taking.
 
 There are tools available in the market which in turn will ease the job of a tester. These automation tools, will emulate the behaviour of the call center environment and test the behaviour of the application. This emulation is so similar to the call center as it can resolve all the features like call pick-up, hang-up, respond, collect inputs etc.
 
@@ -59,4 +59,8 @@ Hammer was developed by Empirix. It identifies experience related issues, perfor
 
 - High priced software
 - initial application implementation requires experts
+
+
+
+# Conclusion
 
