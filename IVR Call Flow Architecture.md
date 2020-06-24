@@ -10,11 +10,7 @@ To make the IVR call more interactive and personalized, it can be deigned with t
 
 When a caller called an IVR number, it hits PSTN endpoint, and will get converted to  a SIP call. This SIP call initiates a SIP session and follows the call flow as designed in CCXML.
 
-
-
-
-
-
+![IVR Call Flow Architecture.png](https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/Blog%20Diagrams/IVR%20Call%20Flow%20Architecture.png?raw=true)
 
 In reference with above picture, SIP call generated at Voice Platform Switch and transferred to  Voice Gateway. Internally a SIP session is initiated for the SIP Call and it starts traversing through the CCXML using CCXML engine. CCXML Engine is the core that controls the complete call flow based on the instructions provided in CCXML document. In the call flow, CCXML engine initiates Voice Browser to parses through VXML documents and communicate with the caller. When the caller interested to connect with the Agent then CCXML engine connects to an Agent from Agent Pool
 
