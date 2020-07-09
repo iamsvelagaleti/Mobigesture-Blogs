@@ -1,9 +1,11 @@
-# IVR
+# What is IVR?
 
 IVR (Interactive Voice Flow) is a modern sophisticated system to generate an automated voice call flow that allows system to interact with its caller and answer them based on their input selection provided to the system in the form of Voice or DTMF(Dual-tone Multi-frequency) through keypad. 
 
 To make the IVR call more interactive and personalized, it can be deigned with the helps of different menus, sub-menus and options in support from CCXML and VXML based digital documents which can be processed in Voice Gateway Engine to generate an IVR call.
 
+
+<legacy vs current>
 
 
 ## IVR System Infrastructure
