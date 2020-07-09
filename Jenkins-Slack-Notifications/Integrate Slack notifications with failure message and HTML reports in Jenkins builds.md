@@ -33,7 +33,7 @@ For demonstration purpose, I have created channel called  *#test-ci-alerts* and 
 
 Got to *Manage Jenkins ->Plugin Manager* and install  *HTML Publisher Plugin*, if it is not already installed.
 
-<img src="D:\Medium Documents\Slack\8_html_publish_plugin.png" alt="image-20200406143428055" style="zoom:50%;" />
+<img src="https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/Jenkins-Slack-Notifications/1_html_publish_plugin.jpg" alt="image-20200406143428055" style="zoom:50%;" />
 
 
 
@@ -156,14 +156,14 @@ Now Create a Pipeline job (In my Example it is Build Application).
 
 Once the Job is run an HTML report link is created in Jenkins Job for each run/build as shown in the below which always point to the last build.
 
-<img src="D:\Medium Documents\Slack\12_HTML_report_link.png" alt="image-20200406165415767" style="zoom:50%;" />
+<img src="https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/Jenkins-Slack-Notifications/2_HTML_report_link.jpg" alt="image-20200406165415767" style="zoom:50%;" />
 
 When it is clicked it generates below report.
 
-<img src="D:\Medium Documents\Slack\13_HTML_report_display.png" alt="image-20200406165540836" style="zoom:50%;" />
+<img src="https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/Jenkins-Slack-Notifications/3_HTML_report_display.jpg" alt="image-20200406165540836" style="zoom:50%;" />
 
 Below is the snapshot of Slack messages one is for successful build and other is for failure build.
 
-<img src="D:\Medium Documents\Slack\14_Final_slack_message.png" alt="image-20200406165708170" style="zoom:50%;" />
+<img src="https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/Jenkins-Slack-Notifications/4_Final_slack_message.jpg" alt="image-20200406165708170" style="zoom:50%;" />
 
 Error description hold customized error message and Build report points to the HTML report as shown in the above screen shot.
