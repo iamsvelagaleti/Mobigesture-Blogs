@@ -1,18 +1,3 @@
-+++
-title = "Effectively communicating Jenkins job status through Slack including HTML reports"
-description = "Communication is the key in Agile development environments. Slack is an effective communication tool. In this article we will see how to channel your build or job status from Jenkins to a specific channel in Slack so that respective stake holders will take action against failures"
-author = "Ramesh Maddi"
-authorbio = "I am a DevOps Engineer with 12+ years of experience. My experience include deploying applications to AWS, setting up CI/CD pipelines for applications, monitoring the health of applications etc. <br />Reach me at <b><a href='mailto:ramesh.maddi@mobigesture.com'>ramesh.maddi@mobigesture.com</a></b>."
-profilepic = "ramesh_maddi.jpg"
-date = "2020-04-21"
-categories = ["Continuous Integration"]
-tags = [
-    "jenkins",
-    "slack",
-]
-
-+++
-
 [`Slack`](https://slack.com), a highly accepted instant messaging platform across the  enterprises. It is not just limited to messaging, but also used as a notification delivery channel for system monitoring. Slack integrate with many apps. You can find a list of Slack apps [here](https://slack.com/apps).                                       `     
 
 [`Jenkins`](https://jenkins.io)  pipeline runs  every bash command/ script command/batch command as a separate process independently unlike a sequence of steps together. Because of this reason, whenever any single command fails inside a step, Jenkins pipeline immediately aborts and returns failure. This is the reason that we cannot implement customized error messages after a build failure. I am going to provide a solution to overcome this problem and can implement customized error messages which later can be used to send in Slack notification and inside HTML reports.
@@ -27,7 +12,7 @@ In the next steps I am going to explain how to configure Slack notifications and
 
 For demonstration purpose, I have created channel called  *#test-ci-alerts* and added the details in Jenkins. Here is the screenshot after configuration (Please refer to the above link for configuration of slack channel)
 
-![Jenkins Slack configuration](https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/Jenkins-Slack-Notifications/1_Jenkins_slack_config2.png)
+![Jenkins Slack configuration](https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/Jenkins-Slack-Notifications/1_Jenkins_slack_config2.png?raw=true)
 
 #### Install HTML publisher plugin
 
