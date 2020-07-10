@@ -11,9 +11,17 @@ In either of the possibility, the basic flow for the IVR call will be
 
 
 
+--------------------------------------
+
+Image will posted here on the Call Flow
+
+-----------------------------------------------
+
+
+
 When a call received to the call center, it will be converted to SIP call and flow through the call flow by requesting DTMF or voice-based inputs from the caller. If Caller desired and opted for connected to the call center agent, then call will be redirected to the Agent.
 
-
+In this blog, let us have an high level overview on the IVR system infrastructure designed based on VXML and CCXML.
 
 
 ## IVR System Infrastructure
@@ -34,7 +42,38 @@ To understand more in detail, it is important to go through the below terminolog
 
 There are 2 types of SIP Messages: request and response. 
 
-**SIP request** is sent by the used with a method to define the nature of the request and the Request-URI. There are 14 ways of SIP request, that can be sent in an IP call.
+**SIP request** will be sent by the call-agent with a method to define the nature of the request and the Request-URI. There are 14 ways of SIP request, that can be sent in an IP call. Out out all, below are the most used requests in a SIP Call
+
+```
+REGISTER	-	Used to register the URI as a *Contact* in the network 
+
+INVITE		-	Used to establish a call, it will sent from the client to the server
+
+ACK			-	Used for acknowledgement purposes for confirming the request received at the other end point
+
+BYE			-	Used for signal termination and to end call
+
+CANCEL		-	Used to cancel any pending request sent prior to this request
+
+REFER		- 	Used to request an issue-request to call-transfer
+```
+
+**SIP response** will be sent by the agent server to indicate the result of received SIP request. These are generally determined with the help of numerical range of result code. Below is the high-level
+
+```
+1XX		-	used to indicate received response is valid and being processed
+
+2XX		-	To confirm request is processed successfully (200 is most used response code to indicate call 				established)
+
+3XX		-	To indicate call redirect to complete request
+
+4XX		-	To indicate error occurered at the server side (400 is used for bad syntax on the request)
+
+5XX		-	To indicate server internal failure on a valid request
+
+6XX		-	To indicate failure which cannot be handled from server side (ex: call rejection)
+
+```
 
 
 
@@ -44,11 +83,66 @@ Voice gateway can be referred as Router PSTN with a standard purpose of converti
 
 Voice Gateway contains two primary components.
 
-1. **Voice Browser** -  Is a type of browser to accept input in the form of DTMF & Voice inputs
+1. **Voice Browser** -  Is a type of browser works on [VoiceXML(VXML)](https://voicexml.org/) to get interactive call flow forms and accept input as DTMF and/or Voice inputs
 
-   - As similar to web browser using HTML, Voice Browser uses VoiceXML (VXML). VXML is a dialog markup language helps to design an interactive call flow forms with leverage on usage of DTMF and Voice as the form inputs. 
+   Below code is the example for a sample VXML file to welcome the caller on receiving a call and ask his/her input as DTMF between 0 to 9.
 
-     > Ref: https://voicexml.org/
+   ```
+   <?xml version="1.0" encoding="UTF-8"?>
+   <vxml version = "2.1">
+       <meta name="maintainer" content="1234567890" />
+       <form id="guessNumber">
+           <field name="guess">
+               <prompt>Hello Caller! Thank you for being a Mobigesture blogger. To Test, please pick a number between 0 and 9</prompt>
+               <grammar xml:lang="en-US" root = "MYRULE" mode="dtmf">
+                   <rule id="MYRULE" scope = "public">
+                       <one-of>
+                           <item> 1 </item>
+                           <item> 2 </item>
+                           <item> 3 </item>
+                           <item> 4 </item>
+                           <item> 5 </item>
+                           <item> 6 </item>
+                           <item> 7 </item>
+                           <item> 8 </item>
+                           <item> 9 </item>
+                           <item> 0 </item>
+                       </one-of>
+                   </rule>
+               </grammar>
+               <grammar xml:lang="en-US" root = "MYRULE" mode="voice">
+                   <rule id="MYRULE" scope = "public">
+                       <one-of>
+                           <item> one </item>
+                           <item> two </item>
+                           <item> three </item>
+                           <item> four </item>
+                           <item> five </item>
+                           <item> six </item>
+                           <item> seven </item>
+                           <item> eight </item>
+                           <item> nine </item>
+                           <item> zero </item>
+                       </one-of>
+                   </rule>
+               </grammar>
+               <noinput>
+                   <prompt>I did not hear you. Please try again.</prompt>
+                   <reprompt/>
+               </noinput>
+               <nomatch>
+                   <prompt>Is that a number? Please try again.</prompt>
+                   <reprompt/>
+               </nomatch>
+           </field>
+           <filled namelist="guess" mode="all">
+               <prompt> Your input is <value expr="guess" /></prompt>
+           </filled>
+       </form>
+   </vxml>
+   ```
+
+   
 
 2. **CCXML Engine** - To handle calls based on instructions passed through CCXML
 
@@ -60,17 +154,25 @@ Voice Gateway contains two primary components.
 
 Voice Platform is a hardware unit can be defined as switch to execute commands and logic provided on VXML and CCXML with a capability to process speech and DTMF inputs along with enabling voice application creation on it. They are also designed to interface with back-end systems. The major share holders in the market are
 
-1. Avaya Voice Platform (AVP)
-2. Genesys Voice Platform (GVP)
-3. Cisco Voice Platform (CVP)
+1. [Avaya Voice Platform](https://support.avaya.com/products/P0979/voice-portal) (AVP)
+2. [Genesys Voice Platform](https://docs.genesys.com/Documentation/GVP) (GVP)
+3. [Cisco Voice Platform](https://www.cisco.com/c/en/us/support/customer-collaboration/unified-customer-voice-portal-11-6/model.html) (CVP)
+
+
+
+This mode of working with VXML & CCXML is becoming legacy due to various factors. Some of them are
+
+1. Upfront Infrastructure setup cost is high
+
+2. Maintenance based on Voice Platform switches are complex
+
+3. CCXML session maintenance is a bit complicated in design
+
+   
 
 ## Conclusion
 
-With huge ROI and desire to provide more personalized assistance to the customers, companies are interested in investments towards IVR systems to assist their customers 24/7. 
-
-Considering the customer satisfaction, it is very important to meet required expectations. And, to be successful in IVR call flow implementation, huge efforts are required in testing. When it comes to manual testing, it becomes a stress to listen similar prompts repeatedly and same repetitive inputs to be given on a each development change, which can be called as failure in this automated software world. Automation testing is made possible with emulation of call centre environment using Automation Tools for this domain.
-
-> For the details on Automation of IVR call flow testing follow with this link:
+With huge ROI and desire to provide more personalized assistance to the customers, companies are interested in making investments towards IVR systems to assist their customers 24/7. On the flip side, on-premise setup & maintenance requires huge investments, to reduce the upfront costs, VoIP domain engineers are making steps to implement solutions on Cloud. To make it possible there are certain open source alternatives (namely [Freeswitch](https://freeswitch.com/) or [Asterisk](https://www.asterisk.org/)) available in the market. 
 
  
 
