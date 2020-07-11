@@ -9,15 +9,7 @@ To make the IVR call interactive and personalized, it will be deigned with the h
 
 In either of the possibility, the basic flow for the IVR call will be
 
-
-
---------------------------------------
-
-Image will posted here on the Call Flow
-
------------------------------------------------
-
-
+![IVR Call Flow](https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/IVR%20Call%20Flow%20Architecture/IVR%20Call.png)
 
 When a call received to the call center, it will be converted to SIP call and flow through the call flow by requesting DTMF or voice-based inputs from the caller. If Caller desired and opted for connected to the call center agent, then call will be redirected to the Agent.
 
