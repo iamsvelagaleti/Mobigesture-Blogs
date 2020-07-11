@@ -11,9 +11,9 @@ In either of the possibility, the basic flow for the IVR call will be
 
 ![IVR Call Flow](https://github.com/iamsvelagaleti/Mobigesture-Blogs/blob/master/IVR%20Call%20Flow%20Architecture/IVR%20Call.png)
 
-When a call received to the call center, it will be converted to SIP call and flow through the call flow by requesting DTMF or voice-based inputs from the caller. If Caller desired and opted for connected to the call center agent, then call will be redirected to the Agent.
+When a call received at the call center from telephone network, it will be converted to SIP call by Voice Platform Switches and flow through the call flow by responding to audio prompts through DTMF/voice inputs. If Caller is desired and opted to speak with the call center agent, then call will be routed to the Agent.
 
-In this blog, let us have an high level overview on the IVR system infrastructure designed based on VXML and CCXML.
+In this blog, let us have an high level overview on the IVR system infrastructure designed based on VXML and CCXML running on on-premise Voice Gateway.
 
 
 ## IVR System Infrastructure
